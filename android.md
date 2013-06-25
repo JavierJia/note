@@ -21,3 +21,62 @@ Uninstall everything, including data and program
 
     adb uninstall com.package.foo 
 
+## push 
+To copy a file from the computer to an android device connected via usb, use this:
+
+    adb push /path/to/local/file /mnt/sdcard/path/to/file
+
+# creat a sdcard on emulator
+The easiest one is using eclipse to edit the adt, it will be found at /mnt/sdcard on device
+
+The other way is to using adt tools, the details is found here :
+http://androidblogger.blogspot.com/2009/02/tutorial-how-to-emulate-sd-card-with.html
+
+## adb devices 
+When it showed that 
+
+    adb devices:
+    ????  no permissions
+
+fix it using root:
+
+    sudo /path/to/adb kill-server
+    sudo /path/to/adb start-server
+    sudo /path/to/adb devices
+
+# using ant to build the package
+Reference is on http://www.androidengineer.com/2010/06/using-ant-to-automate-building-android.html
+
+Build from exist eclipse-adt project
+
+    android update project -p . -n my-project
+    Options:
+      -l --library    : Directory of an Android library to add, relative to this
+                        project's directory.
+      -p --path       : The project's directory. [required]
+      -n --name       : Project name.
+      -t --target     : Target ID to set for the project.
+      -s --subprojects: Also updates any projects in sub-folders, such as test
+                        projects.
+
+# Add third part META-INF/services into apk
+Followed the reference : http://stackoverflow.com/questions/16898409/keep-meta-inf-services-files-in-apk/17066147#17066147
+
+I created a custom_rules.xml with the followin targets to copy files in META-INF/services into the unaligned and unsigned apk.
+
+    <project name="add-services">
+    <target name="-post-package" depends="-custom-copy" />
+    <target name="-copy-custom">
+        <zip destfile="${out.packaged.file}"
+             update="true"
+             basedir="${source.absolute.dir}"
+             includes="${custom.copy}" />
+    </target>
+    </project>
+
+And in ant.properties I added the line
+
+    custom.copy=META-INF/services/**
+
+Now I just have to copy relevant files from libraries to the META-INF/services-folder of my own project to include them in the apk. This gives me full control over which classes to be loaded by ServiceLoader.
+
