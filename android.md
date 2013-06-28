@@ -26,6 +26,10 @@ To copy a file from the computer to an android device connected via usb, use thi
 
     adb push /path/to/local/file /mnt/sdcard/path/to/file
 
+## run an application
+
+    adb shell am start -n com.package.name/com.package.name.ActivityName
+
 # creat a sdcard on emulator
 The easiest one is using eclipse to edit the adt, it will be found at /mnt/sdcard on device
 
