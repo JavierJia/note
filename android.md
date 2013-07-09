@@ -84,3 +84,17 @@ And in ant.properties I added the line
 
 Now I just have to copy relevant files from libraries to the META-INF/services-folder of my own project to include them in the apk. This gives me full control over which classes to be loaded by ServiceLoader.
 
+# command line create/start emulator
+
+    android list avd
+    emulator -avd "name" or emulator @"name"
+
+# command line store logcat
+    
+    adb logcat > logcat.log
+
+# command line translate ndk memory dump
+ 
+    ndk-stack -sym libs/armeabi-v7a/ -dump logcat.log | more
+
+
