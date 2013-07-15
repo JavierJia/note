@@ -25,3 +25,57 @@
     // for more information about date/time format
     strftime(buf, sizeof(buf), "%x %X", &tstruct);
 ```
+# trace mem usage:
+a brilliant blog: http://stackoverflow.com/questions/63166/how-to-determine-cpu-and-memory-consumption-from-inside-a-process
+
+Virtual Memory currently used by current process:
+```c++
+#include "stdlib.h"
+#include "stdio.h"
+#include "string.h"
+
+
+int parseLine(char* line){
+    int i = strlen(line);
+    while (*line < '0' || *line > '9') line++;
+    line[i-3] = '\0';
+    i = atoi(line);
+    return i;
+}
+
+
+//Virtual Memory currently used by current process
+int getValue(){ //Note: this value is in KB!
+    FILE* file = fopen("/proc/self/status", "r");
+    int result = -1;
+    char line[128];
+
+
+    while (fgets(line, 128, file) != NULL){
+        if (strncmp(line, "VmSize:", 7) == 0){
+            result = parseLine(line);
+            break;
+        }
+    }
+    fclose(file);
+    return result;
+}
+
+//Physical Memory currently used by current process:
+int getValue(){ //Note: this value is in KB!
+    FILE* file = fopen("/proc/self/status", "r");
+    int result = -1;
+    char line[128];
+
+
+    while (fgets(line, 128, file) != NULL){
+        if (strncmp(line, "VmRSS:", 6) == 0){
+            result = parseLine(line);
+            break;
+        }
+    }
+    fclose(file);
+    return result;
+}
+```
+

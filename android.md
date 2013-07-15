@@ -97,4 +97,9 @@ Now I just have to copy relevant files from libraries to the META-INF/services-f
  
     ndk-stack -sym libs/armeabi-v7a/ -dump logcat.log | more
 
+# write/read permission to sd card:
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /
+
 
