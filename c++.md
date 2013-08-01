@@ -25,6 +25,30 @@
     // for more information about date/time format
     strftime(buf, sizeof(buf), "%x %X", &tstruct);
 ```
+## accurate time:
+http://stackoverflow.com/questions/588307/c-obtaining-milliseconds-time-on-linux-clock-doesnt-seem-to-work-properl
+```c++
+#include <sys/time.h>
+void start(){
+    gettimeofday(&startTime, NULL);
+}
+
+double stop(){
+    timeval endTime;
+    long seconds, useconds;
+    double duration;
+
+    gettimeofday(&endTime, NULL);
+
+    seconds  = endTime.tv_sec  - startTime.tv_sec;
+    useconds = endTime.tv_usec - startTime.tv_usec;
+
+    duration = seconds + useconds/1000000.0;
+
+    return duration;
+}
+```
+
 # trace mem usage:
 a brilliant blog: http://stackoverflow.com/questions/63166/how-to-determine-cpu-and-memory-consumption-from-inside-a-process
 
@@ -78,4 +102,5 @@ int getValue(){ //Note: this value is in KB!
     return result;
 }
 ```
+
 

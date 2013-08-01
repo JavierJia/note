@@ -15,3 +15,9 @@ Here is the command to indent from the current line to 38th line
 
 # using this vim-autoformat
 https://github.com/Chiel92/vim-autoformat
+
+# using cscope
+```Bash
+cscope -Rb  # at top level
+```
+In vim Ctrl+\s will list all the reference

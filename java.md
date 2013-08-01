@@ -11,6 +11,7 @@ http://www.jusfortechies.com/java/core-java/static-blocks.php
 # JNI
 Java Native Interface
 http://www.ntu.edu.sg/home/ehchua/programming/java/JavaNativeInterface.html
+## Don't forget to call ReleaseXXX() with a mode of 0 (copy back and free the memory) for each GetXXX() call.
 
 # Commandline parser
 
@@ -89,4 +90,44 @@ http://www.ntu.edu.sg/home/ehchua/programming/java/JavaNativeInterface.html
 # Date format
     
     new SimpleDateFormat("HH:mm").format(new Date())
+
+## Good JNI tutorials:
+
+http://www.ibm.com/developerworks/library/j-jni/
+
+http://www.ibm.com/developerworks/java/tutorials/j-jni/
+
+http://www.ibm.com/developerworks/training/kp/j-kp-jni/
+
+http://publib.boulder.ibm.com/infocenter/javasdk/v5r0/index.jsp?topic=%2Fcom.ibm.java.doc.diagnostics.50%2Fdiag%2Funderstanding%2Fjni_refs.html
+
+
+# Java regex
+Good reference: http://www.vogella.com/articles/JavaRegularExpressions/article.html
+
+Pattern and Matcher can find each match part like this:
+```Java
+public static void main(String[] args) {
+    Pattern pattern = Pattern.compile("\\w+");
+    // In case you would like to ignore case sensitivity you could use this
+    // statement
+    // Pattern pattern = Pattern.compile("\\s+", Pattern.CASE_INSENSITIVE);
+    Matcher matcher = pattern.matcher(EXAMPLE_TEST);
+    // Check all occurance
+    while (matcher.find()) {
+        System.out.print("Start index: " + matcher.start());
+        System.out.print(" End index: " + matcher.end() + " ");
+        System.out.println(matcher.group());
+    }
+    // Now create a new pattern and matcher to replace whitespace with tabs
+    Pattern replace = Pattern.compile("\\s+");
+    Matcher matcher2 = replace.matcher(EXAMPLE_TEST);
+    System.out.println(matcher2.replaceAll("\t"));
+}
+```
+
+# JNI exception:
+##JNI WARNING: expected return type 'L'
+e.g. the return type is "boolean", we are using "CallObjectMethod" then it will give you a warning.
+Change to "CallBooleanMethod" will solve the problem. 
 

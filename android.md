@@ -1,3 +1,6 @@
+# Android codename || version || API level
+http://source.android.com/source/build-numbers.html
+
 # Adapter
 An Adapter object acts as a bridge between an AdapterView and the underlying data for that view.The Adapter provides access to the data items. The Adapter is also responsible for making a View for each item in the data  
 
@@ -102,4 +105,23 @@ Now I just have to copy relevant files from libraries to the META-INF/services-f
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /
 
+# ndk-stack
+http://mogoweb.net/archives/133
 
+# Test devices version:
+```Java
+if (Build.VERSION.SDK_INT >= 11) {
+    queryTask.executeOnExecutor(AsyncQueryTask.SERIAL_EXECUTOR,
+    s.toString());
+} else {
+    queryTask.execute(s.toString());
+}
+```
+# Power monitor
+http://powertutor.org/
+
+# About the guesture
+http://stackoverflow.com/questions/937313/android-basic-gesture-detection
+
+# Start Activity Transition
+http://stackoverflow.com/questions/5151591/android-left-to-right-slide-animation

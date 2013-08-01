@@ -29,3 +29,5 @@ We need to transfer correct "this" object to other function to prevent point to 
         }
     }
 
+# Font color:
+http://www.computerhope.com/htmcolor.htm
