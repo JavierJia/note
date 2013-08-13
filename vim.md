@@ -21,3 +21,9 @@ https://github.com/Chiel92/vim-autoformat
 cscope -Rb  # at top level
 ```
 In vim Ctrl+\s will list all the reference
+
+## cmd of cscope list:
+```bash
+find . -name "*.h" -o -name "*.c" -o -name "*.cc" > cscope.files
+cscope -bkq -i cscope.files
+```
