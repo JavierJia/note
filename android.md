@@ -124,4 +124,10 @@ http://powertutor.org/
 http://stackoverflow.com/questions/937313/android-basic-gesture-detection
 
 # Start Activity Transition
+if we want to change the animation of transition between different activities we need to define the xml file for it.
 http://stackoverflow.com/questions/5151591/android-left-to-right-slide-animation
+
+# Service
+## OnBind
+onBind only works once while the first client bind. The rest directly use it
+
