@@ -41,4 +41,12 @@ Space O(2n), speed O(1)
 # Cartesian tree of a tree
 It's a binary tree. Each time find a min edge to be a new node of the Cartesian tree, at the same time split the original tree using this edge
 
+# Invertable Bloom Filter
+Invertable : can list the items. ( in some probablity)
 
+    Make sum of all key, then wait for some part that |sum|==1, 
+    Then we can delete it from the sum, sum--, then there will be
+    another sum==1 ... until to very end.
+
+# Fibonacci Heap
+Marked node: this node has been delete a child, next time the deletion of it child will split it from the root.

@@ -29,5 +29,18 @@ We need to transfer correct "this" object to other function to prevent point to 
         }
     }
 
+# Get geolocation by Google Map API
+
+    function codeAddress(address) {
+        geocoder.geocode( { 'address': address+ ',University California,Irvine','region': 'us'}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                console.log('address:'+address + results[0].geometry.location);
+            } else {
+                console.warn('warn:Geocode was not successful for the following reason: ' + status);
+                return true;
+            }
+        });
+    }
+
 # Font color:
 http://www.computerhope.com/htmcolor.htm
