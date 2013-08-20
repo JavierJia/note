@@ -31,6 +31,7 @@ public static int More ...getCharType(char ch) {
         // Most (but not all!) of these are Han Ideographic Characters
         if (ch >= 0x4E00 && ch <= 0x9FA5)
           return CharType.HANZI;
+        // A || a
         if ((ch >= 0x0041 && ch <= 0x005A) || (ch >= 0x0061 && ch <= 0x007A))
           return CharType.LETTER;
         if (ch >= 0x0030 && ch <= 0x0039)
@@ -43,8 +44,10 @@ public static int More ...getCharType(char ch) {
           return CharType.DELIMITER;
     
         // Full-Width range
+        // Ａ|| ａ 
         if ((ch >= 0xFF21 && ch <= 0xFF3A) || (ch >= 0xFF41 && ch <= 0xFF5A))
           return CharType.FULLWIDTH_LETTER;
+        // ０
         if (ch >= 0xFF10 && ch <= 0xFF19)
           return CharType.FULLWIDTH_DIGIT;
         if (ch >= 0xFE30 && ch <= 0xFF63)
