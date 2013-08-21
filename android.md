@@ -247,3 +247,14 @@ if (orgCur.moveToFirst()) {
 orgCur.close();
 }
 ```
+
+# Redirect the printf() code inside App
+```
+adb shell stop
+adb shell setprop log.redirect-stdio true
+adb shell start
+```
+Then you can view the output of your "printf()" statements by looking at the "LogCat" window of Eclipse Debugger, or by typing this on a command line:
+```
+adb logcat
+```
