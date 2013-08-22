@@ -258,3 +258,26 @@ Then you can view the output of your "printf()" statements by looking at the "Lo
 ```
 adb logcat
 ```
+
+# Android nkd-build for all chip set:
+Inside Application.mk file declare this
+```
+APP_ABI := all
+```
+
+# Build openssl
+Android has a openssl lib, so we don't need to build a static library. 
+This is a good resource:
+https://github.com/guardianproject/openssl-android
+```
+OPENSSL_HOME="$HOME/software/openssl-android"
+if [ ! -d $OPENSSL_HOME ];then
+git clone https://github.com/guardianproject/openssl-android.git $OPENSSL_HOME
+cd $OPENSSL_HOME
+# Change the version of 4.* into the exist one by checking 
+# $ANDROID_NDK_HOME/toolchain/*-androideabi-4.*
+$ANDROID_NDK_HOME/ndk-build NDK_TOOLCHAIN_VERSION=4.6
+cp -r libs/armeabi/*.so $ANDROID_STANDALONE_TOOLCHAIN/user/lib/
+cp -r include/openssl   $ANDROID_STANDALONE_TOOLCHAIN/user/include/
+fi              
+```
