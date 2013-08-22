@@ -134,40 +134,7 @@ http://stackoverflow.com/questions/5151591/android-left-to-right-slide-animation
 ## OnBind
 onBind only works once while the first client bind. The rest directly use it
 
-# Read the contact 
-The best example: http://www.coderzheaven.com/2011/06/13/get-all-details-from-contacts-in-android/
-
-The answers from stackoverflow are also good:
-http://stackoverflow.com/questions/1721279/how-to-read-contacts-on-android-2-0
-
-```java
-public void readContacts(){
-ContentResolver cr = getContentResolver();
-Cursor cur = cr.query(ContactsContract.Contacts.CONTENT_URI,
-null, null, null, null);
-
-if (cur.getCount() > 0) {
-while (cur.moveToNext()) {
-String id = cur.getString(cur.getColumnIndex(ContactsContract.Contacts._ID));
-String name = cur.getString(cur.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-if (Integer.parseInt(cur.getString(cur.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
-System.out.println("name : " + name + ", ID : " + id);
-
-// get <span id="IL_AD7" class="IL_AD">the phone</span> number
-Cursor pCur = cr.query(ContactsContract.CommonDataKinds.<span id="IL_AD8" class="IL_AD">Phone</span>.CONTENT_URI,null,
-ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = ?",
-new String[]{id}, null);
-while (pCur.moveToNext()) {
-String phone = pCur.getString(
-pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-System.out.println("phone" + phone);
-}
-pCur.close();
-
-
-// get email and type
-
-
+<<<<<<< HEAD
 Cursor emailCur = cr.query(
         ContactsContract.CommonDataKinds.Email.CONTENT_URI,
         null,
@@ -287,3 +254,5 @@ cp -r libs/armeabi/*.so $ANDROID_STANDALONE_TOOLCHAIN/user/lib/
 cp -r include/openssl   $ANDROID_STANDALONE_TOOLCHAIN/user/include/
 fi              
 ```
+=======
+>>>>>>> 6028c4e09d2eba4df0f0af9c7b8cf5dbbe13e82a

@@ -27,10 +27,3 @@ In vim Ctrl+\s will list all the reference
 find . -name "*.h" -o -name "*.c" -o -name "*.cc" > cscope.files
 cscope -bkq -i cscope.files
 ```
-
-# Capitalize word
-```vim
-gU  # for single char
-gUw # for single word
-gu  # lowercase
-```
