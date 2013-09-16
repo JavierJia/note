@@ -21,6 +21,11 @@ remote:
     
     git push origin :branchname
 
+remove obsolete branc
+```
+git remote prune origin
+```
+
 # add upstream:
 
     git remote add upstream https://xxxx.git
@@ -65,6 +70,11 @@ final check
 
     git pull origin master
 
+# git fetch remote branch
+```
+git fetch origin
+git checkout -b test origin/test
+```
 # git diff
 '''bash
     # diff between commits 14b8... and b410...

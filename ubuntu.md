@@ -11,4 +11,10 @@ https://help.ubuntu.com/community/Locale
 # 12.04 enable remote desk
 Search in the "dash" for remote; you will find an option for "Desktop Sharing"
 
-
+# Check cpu info
+```
+cat /proc/cpuinfo
+cat /proc/meminfo
+dmesg
+lspci
+```

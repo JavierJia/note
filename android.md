@@ -10,6 +10,14 @@ An Adapter object acts as a bridge between an AdapterView and the underlying dat
 # Intent
 An Intent is an object that provides runtime binding between separate components (such as two activities). The Intent represents an app’s "intent to do something." You can use intents for a wide variety of tasks, but most often they’re used to start another activity.
 
+# Install ia32-libs for adb
+Only works for 12.10 Ubuntu
+```
+sudo dpkg --add-architecture i386
+sudo apt-get update 
+sudo apt-get install ia32-libs
+```
+
 # adb cmd
 ## install 
 
@@ -287,3 +295,67 @@ cp -r libs/armeabi/*.so $ANDROID_STANDALONE_TOOLCHAIN/user/lib/
 cp -r include/openssl   $ANDROID_STANDALONE_TOOLCHAIN/user/include/
 fi              
 ```
+
+# Some system intent:
+http://beta.appinventor.mit.edu/learn/reference/other/activitystarter.html
+## Call 
+```
+Intent intent = new Intent(Intent.ACTION_CALL);
+intent.setData(Uri.parse("tel:" + "133999"));
+startActivity(intent);
+```
+## SMS
+```
+Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+smsIntent.setType("vnd.android-dir/mms-sms");
+smsIntent.putExtra("address", "949xxx");
+smsIntent.putExtra("sms_body", "msg");
+```
+## To certain contact:
+```
+ContentResolver resolver = getContentResolver();
+Cursor cursor = resolver.query(
+    ContactsContract.Contacts.CONTENT_URI, null,
+    ContactsContract.Contacts.DISPLAY_NAME + "= ?",
+    new String [] {"Contact name"}, null);
+    if (cursor.getCount() > 0) {
+        cursor.moveToFirst();
+        String xid = cursor.getString(cursor
+            .getColumnIndex(ContactsContract.Contacts._ID));
+        intent = new Intent(Intent.ACTION_VIEW, Uri
+            .withAppendedPath(
+                ContactsContract.Contacts.CONTENT_URI, xid));
+        startActivity(intent);
+    }
+```
+
+# Sign the release apk:
+http://developer.android.com/tools/publishing/app-signing.html
+
+# ICON
+http://android-ui-utils.googlecode.com/hg/asset-studio/dist/icons-launcher.html#foreground.type=clipart&foreground.space.trim=1&foreground.space.pad=0.05&foreground.clipart=res%2Fclipart%2Ficons%2Fnavigation_cancel.svg&foreColor=33b5e5%2C0&crop=0&backgroundShape=bevel&backColor=ffffff%2C100
+
+# Listen to the contacts changes:
+http://saigeethamn.blogspot.in/2011/05/contacts-api-20-and-above-android.html
+
+# Emulater send message
+
+*open a console
+*connect via telnet to the running emulator: telnet localhost 5554 (you can find the portnumber in the title of the emulator)
+*type this: sms send senderPhoneNumber textmessage
+
+# Android clear application data
+```
+adb -s emulator-5554 shell pm clear com.android.demo
+```
+
+# Android format string to URI
+```
+String queryUri = String.format(
+                "http://www.google.com/complete/search?output=toolbar&q=%s",
+                                Uri.encode(queryString));
+```
+
+# Custom title bar
+http://www.edumobile.org/android/android-programming-tutorials/creating-a-custom-title-bar/
+

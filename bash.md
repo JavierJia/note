@@ -10,4 +10,13 @@
 
     find ../src/ -type f -name "*.h" -exec grep -Hn "cout" {} \;
 
-
+# String Manipulate
+## replace
+replace only first match
+```
+${string/pattern/replacement}
+```
+replace all the matches
+```
+${string//pattern/replacement}
+```

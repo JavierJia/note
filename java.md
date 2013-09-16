@@ -131,3 +131,62 @@ public static void main(String[] args) {
 e.g. the return type is "boolean", we are using "CallObjectMethod" then it will give you a warning.
 Change to "CallBooleanMethod" will solve the problem. 
 
+# Generate JNI function declarations
+reference: http://thebreakfastpost.com/2012/01/23/wrapping-a-c-library-with-jni-part-1/
+```
+$ javac org/vamp_plugins/*.java
+$ javah -jni org.vamp_plugins.Plugin org.vamp_plugins.PluginLoader
+```
+
+# JNI return local reference:
+follow this :http://android-developers.blogspot.com/2011/11/jni-local-reference-changes-in-ics.html
+```
+static jobjectArray MyClass_returnArray(JNIEnv* env, jclass) {
+    env->PushLocalFrame(256);
+    jobjectArray array = env->NewObjectArray(128, gMyClass, NULL);
+    for (int i = 0; i < 128; ++i) {
+        env->SetObjectArrayElement(array, i, newMyClass(i));
+    }
+    env->PopLocalFrame(NULL); // Error: should pass 'array'.
+    return array; // Error: array is no longer valid.
+}
+```
+
+
+# JNI cache the jclass and jmethod by static call and static variables
+reference :http://stackoverflow.com/questions/10617735/in-jni-how-do-i-cache-the-class-methodid-and-fieldids-per-ibms-performance-r
+
+# Create Jar file:
+```
+jar cf jar-file input-file(s)
+```
+
+# About the InnerClass
+An instance of InnerClass can exist only within an instance of OuterClass and has direct access to the methods and fields of its enclosing instance. The next figure illustrates this idea.
+
+and:
+
+A nested class is a member of its enclosing class. Non-static nested classes (inner classes) have access to other members of the enclosing class, even if they are declared private. Static nested classes do not have access to other members of the enclosing class. As a member of the OuterClass, a nested class can be declared private, public, protected, or package private. (Recall that outer classes can only be declared public or package private.)
+
+# HashMap loop:
+Loop keys:
+```
+Map<String, Object> map = ...;
+
+for (String key : map.keySet()) {
+        // ...
+}
+
+//If you only need the values, use values():
+for (Object value : map.values()) {
+        // ...
+}
+
+//Finally, if you want both the key and value, use entrySet():
+
+for (Map.Entry<String, Object> entry : map.entrySet()) {
+        String key = entry.getKey();
+        Object value = entry.getValue();
+        // ...
+}
+```
