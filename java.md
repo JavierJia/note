@@ -190,3 +190,31 @@ for (Map.Entry<String, Object> entry : map.entrySet()) {
         // ...
 }
 ```
+
+# Eclipse sidebar setting in ubuntu:
+
+```bash
+sudo ln -s ~/Downloads/eclipse /usr/lib/
+sudo ln -s /usr/lib/eclipse/eclipse /usr/bin/eclipse
+sudo vi  /usr/share/applications/eclipse.desktop
+```
+Copy these lines to that eclipse.desktop file
+```
+[Desktop Entry]
+Version=4.3
+Name=Eclipse
+GenericName=Text Editor
+
+Exec=eclipse
+Terminal=false
+Icon=/usr/lib/eclipse/icon.xpm
+Type=Application
+Categories=IDE;Development
+X-Ayatana-Desktop-Shortcuts=NewWindow
+
+[NewWindow Shortcut Group]
+Name=New Window
+Exec=eclipse -n
+TargetEnvironment=Unity
+```
+
