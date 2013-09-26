@@ -75,6 +75,7 @@ final check
 git fetch origin
 git checkout -b test origin/test
 ```
+if have trouble try a git pull first
 # git diff
 '''bash
     # diff between commits 14b8... and b410...

@@ -47,3 +47,5 @@ javadoc:
 </executions>
 </plugin>
 ```
+# mvn depending on a Native or JNI library
+https://www.darkcornersoftware.com/confluence/display/MAVEN/Depending+on+a+Native+or+JNI+Library
