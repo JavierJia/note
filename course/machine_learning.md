@@ -5,7 +5,7 @@
 * [Alex Ihler](http://www.ics.uci.edu/~ihler/)
 * [Piazza](https://piazza.com/class/hlr1ws3vto25yy)
 * [Project](http://www.kaggle.com/)
-
+* [Octave](http://www.gnu.org/software/octave/support.html)
 ## Thu Sep 26 13:57:23 PDT 2013
 
 * Supervised
