@@ -18,6 +18,20 @@
 Overfitting : 
 good at training data, bad at test data
 
+## Tue Oct  1 14:05:50 PDT 2013
+K Nearest Neighbor
+
+*Regression
+*Classification
+
+Y = (Σ y of nearest_set(x))/ K
+
+The bigger the K is, the smooth the Y it is. But if K is too big, Y will be too far away from the training data.
+
+### locality weighted variant:
+Give the nearer neighbor higher weight.
+
+
 
 
 
