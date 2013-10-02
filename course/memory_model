@@ -1,9 +1,0 @@
-# Resources
-http://www.ics.uci.edu/~guoqingx/courses/295/fall13/
-
-## L1 cache is used by one core. L2 cache is shared by multiple cores inside one Processor
-
-* Memory consistency models
-* Cache consistency models
-
-## Read chapter 3
