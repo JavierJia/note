@@ -103,4 +103,9 @@ int getValue(){ //Note: this value is in KB!
 }
 ```
 
+# Valgra
+valgrind --tool=memcheck ./a.out
+
+manule of memcheck:
+http://valgrind.org/docs/manual/mc-manual.html
 

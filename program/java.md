@@ -218,3 +218,7 @@ Exec=eclipse -n
 TargetEnvironment=Unity
 ```
 
+# Jdk 7 copy file:
+```Java
+Files.copy(new File(resultFileName).toPath(), new File(expectFileName).toPath());
+```

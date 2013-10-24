@@ -20,3 +20,9 @@ replace all the matches
 ```
 ${string//pattern/replacement}
 ```
+
+# Run local script on remote machine
+`without` copy script to it:
+```
+ssh root@MachineB 'bash -s' < local_script.sh
+```
