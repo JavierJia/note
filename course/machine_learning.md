@@ -62,7 +62,30 @@ Give the nearer neighbor higher weight.
       * Grow a large tree and then prune back. ( How to ? )
       * Other controls
          * Maximum depth
-         * Minimum # parent data
+         * Minimum |data nodes| in parents ( before split). 
+
+### SVM
+* From the "better" boundary choose a "best" one
+* Find a function to describe the "Best margin"
+* "Support Vectors" : data points on margin
+   * find margin: 
+      * f(x) >= +1, for y(x) = +1
+      * f(x) <= -1, for y(x) = -1
+      * A lot of different parallel lines.
+   * compute the maximum margin one
+      * |W| is perpendicular to boundary
+      * Choose x0, x1 as two point on the boundary that closest to each other
+         * x1 = x0 + r * w ( r is the distance coefficient, W = rw is the Margin) 
+      * Given 
+         * W x0 + b = -1
+         * W x1 + b = +1
+         * Then 
+         * W (x0 + r * W) + b = +1
+         * ==> r = 2/ ||w||^2
+         * M = r w = 2 / \sqrt (W^T * W)
+         * w = argmin \sum w_j^2
+      * Constrained argmin problem.
+   
 
 
 
