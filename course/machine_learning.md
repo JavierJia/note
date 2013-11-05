@@ -32,6 +32,20 @@ The bigger the K is, the smooth the Y it is. But if K is too big, Y will be too 
 Give the nearer neighbor higher weight.
 
 
+## Midterm review
+### K-NN
+* In general: Nearest-neighbor classifier produces piecewise linear decision boundaries
+* Regression: Avg( yi in |y|^k)
+* Classification: Vote in sign (K)
+* Increasing K : less emphasis on individual points
+* Extensions:
+   * weighted distance , the nearer point have more vote
+
+### Bayes 
+* P(y|x) => P(x|y)P(y)
+* Multiple valuse lead to a full combination of values, is the overfiting case in Bayes model
+* If the features are indepedent of each other => Naive bayes model
+* 
 
 
 
