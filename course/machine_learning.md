@@ -45,7 +45,24 @@ Give the nearer neighbor higher weight.
 * P(y|x) => P(x|y)P(y)
 * Multiple valuse lead to a full combination of values, is the overfiting case in Bayes model
 * If the features are indepedent of each other => Naive bayes model
-* 
+
+### Decision trees
+* Multiple children VS binary tree
+* "Complexity": depth
+* Regression: change the leaf value from class label to real value
+* Learning:
+   * Leaf node
+      * Classification: choose the majority
+      * Regression: avg value
+   * Non-leaf node
+   * Learning score:
+      * Information gain
+   * Stop criteria:
+      * Information gain threshold ? Not a good idea
+      * Grow a large tree and then prune back. ( How to ? )
+      * Other controls
+         * Maximum depth
+         * Minimum # parent data
 
 
 
