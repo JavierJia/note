@@ -86,7 +86,22 @@ Give the nearer neighbor higher weight.
          * w = argmin \sum w_j^2
       * Constrained argmin problem.
    
+### Linear regression
+* Linear function : Y = \theta * X
+* gradient descent 
+   * MSE: J = 1/m \sum ( y - y^hat ) ^2
+   * J -= \alpha * derivative J 
+   * For all the data X ( m*f)
+      * delta J = 2/m ( Y' - \theta X[M,F]) X[M,F]
+* Very general 
+* Local minimal
+* Need to choose a better Step size
+* Online gradient descent
+   * Update on each data I
+   * Faster, update on each value
+   * Not strict "desent"
 
+* 
 
 
 
