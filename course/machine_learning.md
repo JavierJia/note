@@ -100,8 +100,41 @@ Give the nearer neighbor higher weight.
    * Update on each data I
    * Faster, update on each value
    * Not strict "desent"
+* Minimum delta J = 0 => (Y' - \theta X[M,F]) X[M,F] = 0
+   * first part is error
+   * second part is features
+      * sensitivity to outliers 
+#### Linear regression on Multi dimensions
+* mock up a X feature vector by [1 x x^2 x^3 ... ] to solve the \theta []
+* “Linear regression” = linear in the parameters
+   * non linear in features, we can make complex features
+* More complex models always fit the data better. but may lead to overfitting
+#### Regularization
+* MSE + \alpha \theta \theta'
+* derivative to \theta = 0 == > \theta = yX ( X'X + \alpha I )^-1
+* Prefer smaller \theta
 
-* 
+### Linear Classfication
+#### Perceptron 
+* \theta => weights
+* Sum of input features and then threshod by T(.) function ? 
+* The boundry : \theta X' = 0
+* Separability
+   * Linear separatable 
+   * Non linear separatable => add quadratic features to make it 
+* Learnner:
+   * The same as SG learning
+   * Stepwise descening
+   * Will converge if linear separatable
+* Transform the y^hat - y into f(y^hat) - y to smooth the boundary and make it easier to optimized.
+   * Side benefit of the "smoothed" function: encourage the data to be far from the boundary, even the error rate is the same
+* f() => \sigma (z) = 1/ (1+exp(-z))
+* The reason: derivate \sigma(z) = \sigma(z) * (1- \sigma(z))
+#### Logistic regression
+* Interpret the \sigma as a probability that y = 1
+* Negative log-likelihood loss function
+* J (\theta) = - 1/m \sum y(i) log \sigma(\theta * x(i) + (1-y(i)) log( 1- \sigma(\theta * x(i))
+* Guarentee Convex!
 
 
 
