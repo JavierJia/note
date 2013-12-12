@@ -136,5 +136,33 @@ Give the nearer neighbor higher weight.
 * J (\theta) = - 1/m \sum y(i) log \sigma(\theta * x(i) + (1-y(i)) log( 1- \sigma(\theta * x(i))
 * Guarentee Convex!
 
+### Ensemble
+* Combine many predictors
+* Simple
+   * Committee
+   * Weighted
+* Bagging
+   * Random generate N' samples `K` times
+   * Train `K` different learners
+   * Test: avergae for regression, majority for classfication
+   * Random forest:
+      * Each step only allow a subset of features
+      * Average over all 
+* Boosting
+   * Gradiant Learn the error produced by the previous round
+   * Adaboost
+      * increase the weights of the wrong point
+
+### Cluster
+* K-means
+   * K center, update class => update center => update ...
+   * One example exactly one cluster
+   * tend to choose the circle shape
+* Gaussian EM
+   * E: estimate the probability of that node belongs to one cluster
+   * M: update mean and variance, using the weighed ( probability from E step) data point.
+   * Result will be overlap
+
+### Demension reduction
 
 
