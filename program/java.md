@@ -222,3 +222,20 @@ TargetEnvironment=Unity
 ```Java
 Files.copy(new File(resultFileName).toPath(), new File(expectFileName).toPath());
 ```
+
+# Java_home on mac:
+```
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+```
+
+# Java remote debug
+http://stackoverflow.com/questions/975271/remote-debugging-a-java-application
+```
+java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=n myapp
+```
+Start your remote java application with debugging options as said in above post.
+Configure Eclipse for remote debugging by specifying host and port.
+Start remote debugging in Eclipse and wait for connection to succeed.
+Setup breakpoint and debug.
+If you want to debug from start of application use suspend=y , this will keep remote application suspended until you connect from eclipse.
+

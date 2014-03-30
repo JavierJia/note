@@ -178,3 +178,20 @@ Don't worry, if we are sure that we just want the final changes, we don't need t
   git rebase --continue
 ```
   Rebase work through each commit one by one, thus we may have another conflict later. Continue do the above commands until successfully rebased. 
+
+# batch delete branch
+Especially for the remote branches which is very annoyting obsolete branches
+`git branch -r | grep name/of/branch | sed "s/github\///" |  xargs git push github --delete`
+
+# gitignore doesn't work
+http://stackoverflow.com/questions/1139762/gitignore-file-not-ignoring
+```bash
+#First commit any outstanding code changes, and then, run this command:
+git rm -r --cached .
+
+#This removes any changed files from the index(staging area), then just run:
+git add .
+
+#Commit it:
+git commit -m ".gitignore is now working"
+```
