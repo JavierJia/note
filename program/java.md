@@ -222,3 +222,7 @@ TargetEnvironment=Unity
 ```Java
 Files.copy(new File(resultFileName).toPath(), new File(expectFileName).toPath());
 ```
+
+# Good documentation about install the oracle jdk8 on ubuntu
+http://askubuntu.com/questions/56104/how-can-i-install-sun-oracles-proprietary-java-jdk-6-7-8-or-jre
+
