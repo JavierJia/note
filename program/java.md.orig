@@ -223,6 +223,7 @@ TargetEnvironment=Unity
 Files.copy(new File(resultFileName).toPath(), new File(expectFileName).toPath());
 ```
 
+<<<<<<< HEAD
 # Java_home on mac:
 ```
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
@@ -238,7 +239,8 @@ Configure Eclipse for remote debugging by specifying host and port.
 Start remote debugging in Eclipse and wait for connection to succeed.
 Setup breakpoint and debug.
 If you want to debug from start of application use suspend=y , this will keep remote application suspended until you connect from eclipse.
-
+=======
 # Good documentation about install the oracle jdk8 on ubuntu
 http://askubuntu.com/questions/56104/how-can-i-install-sun-oracles-proprietary-java-jdk-6-7-8-or-jre
+>>>>>>> cdf1d1976c9de66968824cbe9f19d1df084a5b03
 
